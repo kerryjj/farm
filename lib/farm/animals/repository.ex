@@ -34,9 +34,9 @@ defmodule Farm.Animals.Repository do
 
   def update_species_status(species, status) do
     query = from a in Animal,
-      where: a.species == ^species.id
+      where: a.species_id == ^species.id
 
-    Repo.update_all(Animal, set: [status: status])
+    Repo.update_all(query, set: [status: status])
   end
 
   def create_service_gap(%Animal{} = animal, %{reason: _, started_at: _, ended_at: _} = params) do

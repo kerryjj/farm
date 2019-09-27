@@ -36,13 +36,19 @@ defmodule Farm.Animals.RepositoryTest do
     end
 
     test "Mark all animals of a specific species as being as being lost", %{species: species} do
+      another_species = insert(:species, %{name: "Cow"})
+
       Animals.create_animal(%{name: "Bob", species_id: species.id})
       Animals.create_animal(%{name: "Jane", species_id: species.id})
+      Animals.create_animal(%{name: "Yvonne", species_id: another_species.id})
 
       Animals.lost_species(species)
 
       bob = Animals.animal_by_name("Bob")
       assert bob.status == "lost"
+
+      yvonne = Animals.animal_by_name("Yvonne")
+      assert yvonne.status != "lost"
     end
   end
 
