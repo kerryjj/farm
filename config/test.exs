@@ -10,17 +10,9 @@ config :farm, FarmWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-#config :farm, Farm.Repo,
-#       username: "postgres",
-#       password: "postgres",
-#       database: "farm_test",
-#       hostname: "localhost",
-#       pool: Ecto.Adapters.SQL.Sandbox
-
 config :farm, Farm.Repo,
-  username: "blend",
-  password: "blend",
-  database: "farm_test",
-  hostname: "localhost",
-  port: 5433,
-  pool: Ecto.Adapters.SQL.Sandbox
+       username: "postgres",
+       password: "postgres",
+       database: "farm_test",
+       hostname: "localhost",
+       pool: Ecto.Adapters.SQL.Sandbox

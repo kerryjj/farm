@@ -9,8 +9,15 @@ These principles are:
 * Validation of user inputs should happen as close to the edge as possible. 
   * That often means user input validation is done in a controller or plug and not left for the changeset to sort out.  
 
-To run tests
-`mix test`
+To get to the point that the test are run:
+
+* Install and run a local test version of postgres
+  * `docker run -d --name my_postgres -v my_dbdata:/var/lib/postgresql/data -p 54320:5432 postgres:11`
+* Create the farm_test database
+  * `mix ecto.create`
+  * `mix ecto.migrate`
+* Run the tests
+  * `mix test`
 
 I'd definitely like feedback on this as a general approach.
 
